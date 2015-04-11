@@ -15,5 +15,5 @@ def pusher_auth(request):
 
     if pusher.allow_connection(request, channel):
         r = pusher._real_getitem(channel).authenticate(socket_id)
-        return HttpResponse(json.dumps(r), mimetype="application/json")
+        return HttpResponse(json.dumps(r), content_type="application/json")
     return HttpResponseForbidden("Not Authorized")
